@@ -1,35 +1,42 @@
-import React,{useState} from 'react'
+import React from 'react'
 
-export default function About() {
+export default function About(props) {
 
-    const [myStyle,setMyStyle] = useState({
-        color: 'black',
-        backgroundColor: 'white'
+    // const [myStyle,setMyStyle] = useState({
+    //     color: 'black',
+    //     backgroundColor: 'white'
         
-    })
-    const[btnText,setBtnText] = useState("Enable Dark Mode")
+    // })
 
-    const toggleStyle = () =>{
-        if(myStyle.color === 'black'){
-          setMyStyle({
-            color: 'white',
-            backgroundColor: 'black',
-            border:'1px solid white'
-          })  
-          setBtnText("Enable Light Mode")
-        }
-        else{
-            setMyStyle({
-                color: 'black',
-                backgroundColor: 'white'
-            })
-            setBtnText("Enable Dark Mode")
-        }
+    let myStyle = {
+        color:'black',
+        backgroumdColor:'white'
     }
+
+    // const[btnText,setBtnText] = useState("Enable Dark Mode")
+
+    // const toggleStyle = () =>{
+    //     if(myStyle.color === 'black'){
+    //       setMyStyle({
+    //         color: 'white',
+    //         backgroundColor: 'black',
+    //         border:'1px solid white'
+    //       })  
+    //       setBtnText("Enable Light Mode")
+    //     }
+    //     else{
+    //         setMyStyle({
+    //             color: 'black',
+    //             backgroundColor: 'white'
+    //         })
+    //         setBtnText("Enable Dark Mode")
+    //     }
+    // }
+    
 
     return (
         <div className='container' style={myStyle}>
-            <h2 className='my-2'>About us</h2>
+            <h2 className='my-2' style = {{ color:props.mode==='dark'?'white':'black'}}>About us</h2>
             <div className="accordion" id="accordionExample">
                 <div className="accordion-item" style={myStyle}>
                     <h2 className="accordion-header">
@@ -68,7 +75,7 @@ export default function About() {
                     </div>
                 </div>
             </div>
-            <button onClick = {toggleStyle} type="button" className='btn btn-primary' >{btnText}</button>
+            {/* <button onClick = {toggleStyle} type="button" className='btn btn-primary' >{btnText}</button> */}
 
         </div>
     )
